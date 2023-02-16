@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'commons/cats_app_bar.dart';
+import 'shared/widgets/cats_app_bar.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

@@ -28,7 +28,7 @@ dependencies:
   # State management
   mobx: ^2.0.7+5
   flutter_mobx: ^2.0.6+1
-
+  sizer: ^2.0.15
 
   flutter:
     sdk: flutter
