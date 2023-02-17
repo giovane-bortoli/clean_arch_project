@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             routerDelegate: Modular.routerDelegate,
+            routeInformationParser: Modular.routeInformationParser,
           ),
         ),
       ),
