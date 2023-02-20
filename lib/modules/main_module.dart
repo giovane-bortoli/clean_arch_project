@@ -3,8 +3,9 @@ import 'package:clean_arch_project/core/client/clean_arch_project_client_impl.da
 import 'package:clean_arch_project/core/configuration.dart';
 import 'package:clean_arch_project/features/list_cats/data/base/cat_list_data_source.dart';
 import 'package:clean_arch_project/features/list_cats/data/data_sources/cat_list_data_source_impl.dart';
-import 'package:clean_arch_project/home_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../features/presentations/home_cat_list_screen.dart';
 
 class MainModule extends Module {
   @override
@@ -16,11 +17,12 @@ class MainModule extends Module {
               client: i(),
               url: Configuration.baseUrl,
             )),
-        Bind.factory<CatListDataSource>((i) => CatListDataSourceImpl(client: i()))
+        Bind.factory<CatListDataSource>(
+            (i) => CatListDataSourceImpl(client: i()))
       ];
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (_, args) => const MyHomePage()),
+        ChildRoute('/', child: (_, args) => const HomeCatListScreen()),
       ];
 }
