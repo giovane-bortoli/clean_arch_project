@@ -5,7 +5,7 @@ import 'package:clean_arch_project/features/list_cats/data/base/cat_list_data_so
 import 'package:clean_arch_project/features/list_cats/data/data_sources/cat_list_data_source_impl.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../features/presentations/home_cat_list_screen.dart';
+import '../features/list_cats/presentation/screens/home_cat_list_screen.dart';
 
 class MainModule extends Module {
   @override
@@ -17,8 +17,7 @@ class MainModule extends Module {
               client: i(),
               url: Configuration.baseUrl,
             )),
-        Bind.factory<CatListDataSource>(
-            (i) => CatListDataSourceImpl(client: i()))
+        Bind.factory<CatListDataSource>((i) => CatListDataSourceImpl(client: i()))
       ];
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/widgets/cats_app_bar.dart';
+import '../../../../shared/widgets/cats_app_bar.dart';
 
 class HomeCatListScreen extends StatefulWidget {
   const HomeCatListScreen({super.key});
@@ -66,14 +66,14 @@ class CustomCardListCats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.fromLTRB(8, 15, 8, 0),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 15, 8, 0),
       child: Card(
         elevation: 5,
         color: Colors.lightGreen,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+          children: const [
             SizedBox(
               height: 15,
             ),
