@@ -2,11 +2,11 @@ import 'package:clean_arch_project/core/client/clean_arch_project_client.dart';
 import 'package:clean_arch_project/core/client/clean_arch_project_response.dart';
 import 'package:dio/dio.dart' as dio;
 
-class CleanArchProjectClientImpl implements CleanArchProjectClient {
+class CleanArchDioClientImpl implements CleanArchProjectClient {
   final dio.Dio client;
   final String url;
 
-  CleanArchProjectClientImpl({required this.client, required this.url});
+  CleanArchDioClientImpl({required this.client, required this.url});
 
   @override
   Future<CleanArchProjectResponse> delete(
