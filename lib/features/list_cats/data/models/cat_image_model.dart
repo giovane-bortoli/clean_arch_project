@@ -14,7 +14,7 @@ class CatImageModel extends CatImageEntity {
         );
 
   factory CatImageModel.fromJson(Map<String, dynamic> mapped) => CatImageModel(
-        id: mapped['id'],
+        id: mapped['id'] ?? '',
         width: mapped['width'],
         height: mapped['height'],
         url: mapped['url'],

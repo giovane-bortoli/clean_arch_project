@@ -26,8 +26,8 @@ class CatModel extends CatEntity {
         origin: mapped['origin'],
         description: mapped['description'],
         temperament: mapped['temperament'],
-        catImage: CatImageModel.fromJson(mapped['image']),
-        catWeight: CatWeightModel.fromJson(mapped['weight']),
+        catImage: CatImageModel.fromJson(mapped['image'] ?? {}),
+        catWeight: CatWeightModel.fromJson(mapped['weight'] ?? {}),
       );
 
   Map<String, dynamic> toMap() => {

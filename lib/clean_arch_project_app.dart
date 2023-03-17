@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CleanArchProjectApp extends StatelessWidget {
+  const CleanArchProjectApp({super.key});
 
   @override
   Widget build(BuildContext context) {

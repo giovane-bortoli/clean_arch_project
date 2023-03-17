@@ -1,3 +1,4 @@
+import 'package:clean_arch_project/features/initialization/utils/splash_router.dart';
 import 'package:clean_arch_project/modules/main_module.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -12,13 +13,14 @@ class SplashScreen extends StatelessWidget {
 
   Future<void> _loadAppSettings() async {
     await coreActions();
-
+    await SplashRouter().route();
     FlutterNativeSplash.remove();
   }
 
   @override
   Widget build(BuildContext context) {
     _loadAppSettings();
+
     return Scaffold(
       body: Container(
         color: Colors.blue,
