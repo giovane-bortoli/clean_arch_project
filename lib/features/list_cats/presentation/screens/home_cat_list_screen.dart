@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:clean_arch_project/features/list_cats/presentation/stores/cat_store.dart';
 import 'package:clean_arch_project/features/list_cats/presentation/widgets/cat_list_view.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/widgets/cats_app_bar.dart';
@@ -61,7 +62,9 @@ class _HomeCatListScreen extends State<HomeCatListScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: CatListView(catEntity: store.catList),
+        child: Observer(builder: (context) {
+          return CatListView(catEntity: store.catList);
+        }),
       ),
     );
   }
