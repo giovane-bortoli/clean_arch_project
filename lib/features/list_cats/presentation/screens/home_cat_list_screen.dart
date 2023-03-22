@@ -63,7 +63,11 @@ class _HomeCatListScreen extends State<HomeCatListScreen> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Observer(builder: (context) {
-          return CatListView(catEntity: store.catList);
+          return store.status.loading
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : CatListView(catEntity: store.catList);
         }),
       ),
     );

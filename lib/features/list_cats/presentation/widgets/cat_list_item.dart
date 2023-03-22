@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:clean_arch_project/features/list_cats/domain/entities/cat_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -16,13 +15,19 @@ class CatListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        child: Column(
-          children: [
-            Text(catEntity.name),
-            Text(catEntity.description),
-          ],
-        ),
+      child: Column(
+        children: [
+          Card(
+            shadowColor: Colors.black,
+            elevation: 2.0,
+            child: Column(
+              children: [
+                Text(catEntity.name),
+                Text(catEntity.description),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
