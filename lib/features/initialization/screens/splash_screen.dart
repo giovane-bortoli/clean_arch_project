@@ -1,3 +1,4 @@
+import 'package:clean_arch_project/core/storage/hive_storage.dart';
 import 'package:clean_arch_project/features/initialization/utils/splash_router.dart';
 import 'package:clean_arch_project/modules/main_module.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +6,14 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  final hiveStorage = Modular.get<HiveStorage>();
+  SplashScreen({Key? key}) : super(key: key);
 
   Future<void> coreActions() async {
     await Modular.isModuleReady<MainModule>();
+
+    // start local Storage
+    await hiveStorage.initAppStorage();
   }
 
   Future<void> _loadAppSettings() async {

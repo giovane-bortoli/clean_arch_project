@@ -17,14 +17,24 @@ class CatListItem extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          Card(
-            shadowColor: Colors.black,
-            elevation: 2.0,
-            child: Column(
-              children: [
-                Text(catEntity.name),
-                Text(catEntity.description),
-              ],
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                ),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(height: 5),
+                  Text(catEntity.name),
+                  const SizedBox(height: 5),
+                  Text(catEntity.description),
+                ],
+              ),
             ),
           )
         ],
