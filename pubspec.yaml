@@ -25,8 +25,14 @@ dependencies:
   equatable: ^2.0.5
   # Modular organization
   flutter_modular: ^5.0.3
+  # Dependecies injector
+  get_it: ^7.6.0
+  #Dson adapter
+  dson_adapter: ^1.2.0+2
   # State management
   mobx: ^2.1.4
+  #connectivity
+  connectivity_plus: ^3.0.6
   flutter_mobx: ^2.0.6+1
   sizer: ^2.0.15
   flutter_native_splash: ^2.2.9

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:clean_arch_project/features/list_cats/domain/entities/cat_entity.dart';
 import 'package:clean_arch_project/features/list_cats/presentation/widgets/cat_list_item.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class CatListView extends StatelessWidget {
   final List<CatEntity> catEntity;
@@ -18,7 +19,9 @@ class CatListView extends StatelessWidget {
         itemBuilder: (context, index) {
           final catCard = catEntity[index];
           return CatListItem(
-            onTap: () {},
+            onTap: () {
+              Modular.to.pushNamed('cat-details');
+            },
             catEntity: catCard,
           );
         });

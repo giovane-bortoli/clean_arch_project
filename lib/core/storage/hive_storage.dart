@@ -30,7 +30,7 @@ class HiveStorage {
     }
   }
 
-  Future<void> insert(String key, dynamic value, {bool shared = false}) {
+  Future<void> insert(String key, dynamic value, {bool shared = false}) async {
     _ensureLoaded();
     if (shared) {
       _sharedStorage!.addAll({key: value});

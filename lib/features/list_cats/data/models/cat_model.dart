@@ -3,15 +3,15 @@ import 'package:clean_arch_project/features/list_cats/data/models/cat_weight_mod
 import 'package:clean_arch_project/features/list_cats/domain/entities/cat_entity.dart';
 
 class CatModel extends CatEntity {
-  const CatModel(
-      {required String id,
-      required String name,
-      required String origin,
-      required String description,
-      required String temperament,
-      required CatImageModel catImage,
-      required CatWeightModel catWeight})
-      : super(
+  const CatModel({
+    required String id,
+    required String name,
+    required String origin,
+    required String description,
+    required String temperament,
+    required CatImageModel catImage,
+    required CatWeightModel catWeight,
+  }) : super(
             id: id,
             name: name,
             origin: origin,

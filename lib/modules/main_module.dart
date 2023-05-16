@@ -1,10 +1,14 @@
 import 'package:clean_arch_project/core/client/clean_arch_project_client.dart';
 import 'package:clean_arch_project/core/client/clean_arch_dio_client_impl.dart';
 import 'package:clean_arch_project/core/configuration.dart';
+import 'package:clean_arch_project/core/connection/connection_service.dart';
+import 'package:clean_arch_project/core/connection/connection_service_impl.dart';
 import 'package:clean_arch_project/core/storage/hive_storage.dart';
 import 'package:clean_arch_project/features/initialization/screens/splash_screen.dart';
+import 'package:clean_arch_project/features/list_cats/presentation/screens/cat_details_screen.dart';
 import 'package:clean_arch_project/features/list_cats/presentation/screens/home_cat_list_screen.dart';
 import 'package:clean_arch_project/modules/cat_module.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:hive/hive.dart';
@@ -19,6 +23,7 @@ class MainModule extends Module {
   List<Bind> get binds => [
         Bind.singleton<HiveInterface>((i) => Hive),
         Bind.lazySingleton<HiveStorage>((i) => HiveStorage(hive: i())),
+        Bind.factory<Connectivity>((i) => Connectivity()),
         Bind.factory<Dio>((i) {
           final dio = Dio(BaseOptions(
             connectTimeout: 5000,
@@ -27,6 +32,13 @@ class MainModule extends Module {
 
           return dio;
         }),
+        Bind.singleton<ConnectionService>(
+          (i) => ConnectionServiceImpl(
+              domainUrl: Configuration.baseUrl,
+              connectivity: i(),
+              ipCheckApiUrl: Configuration.ipCheckApi,
+              httpClient: i()),
+        ),
         Bind.factory<CleanArchProjectClient>((i) => CleanArchDioClientImpl(
               client: i(),
               url: Configuration.baseUrl,
@@ -41,5 +53,10 @@ class MainModule extends Module {
           child: (_, args) => const HomeCatListScreen(),
           transition: TransitionType.leftToRight,
         ),
+        ChildRoute(
+          '/cat-details',
+          child: (context, args) => const CatDetailsScreen(),
+          transition: TransitionType.leftToRight,
+        )
       ];
 }

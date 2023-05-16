@@ -19,19 +19,25 @@ abstract class _CatStoreBase with Store {
   @observable
   List<CatEntity> catList = [];
 
+  @observable
+  int selectedIndex = 0;
+
   @action
   void setCatList(List<CatEntity> value) => catList = value;
+
+  @computed
+  CatEntity? get selectedCat => catList.isNotEmpty && selectedIndex < catList.length ? catList[selectedIndex] : null;
 
   Future<void> loadCatList() async {
     status.setLoading(true);
     final result = await getCatList(emptyParams);
     await result.fold((failure) {
       if (failure is ServerFailure) {
-        'Erro ao executar';
+        'erro ao executar';
       }
     }, (catList) async {
       return setCatList(catList);
     });
-    return status.setLoading(false);
+    status.setLoading(false);
   }
 }
