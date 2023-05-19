@@ -1,16 +1,36 @@
-# clean_arch_project
 
-A new Flutter project.
+# Pokemon App
 
-## Getting Started
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 
-This project is a starting point for a Flutter application.
+Código fonte do aplicativo Dentre algumas das funcionalidades disponíveis, estão:
+- Visualização dos pokemons em lista com nome e foto na Home
+- Tela de detalhes do respectivo pokemon selecionado na Home com id, habilidades, tipo, altura e peso
+- Navegação entre as telas para voltar e escolher novos pokemons
 
-A few resources to get you started if this is your first Flutter project:
+## Detalhes técnicos do projeto
+- Desenvolvido em [Dart e Flutter](https://flutter.dev/)
+- Utiliza [CLEAN Arquitecture](docs/adr/0001-clean-architecture.md) para organização do código.
+- Injeção de dependências e gerencimento de rotas com [Flutter Modular](https://pub.dev/packages/flutter_modular)
+- Gerenciamento de estado com [Mobx](https://pub.dev/packages/mobx)
+- Conexão HTTP com [Dio](https://pub.dev/packages/dio)
+- Captura de imagens utilizando o image network do flutter
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Configuração do ambiente
+A **Dart VM** e o **Flutter SDK** precisam estar devidamente instalados, de preferência em sua versão *stable*. Utilize o comando `flutter doctor` para verificar se o ambiente Flutter está devidamente configurado.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Após isso, o comando `flutter pub get` faz a instalação das dependências no projeto e `flutter run` inicia a execução em um dispositivo. Mas antes de rodar o projeto, é necessario conferir as configuraçoes de ambiente seguintes.
+
+## Desenvolvimento e Função
+O aplicativo foi desenvolvido para teste e aplicação de vaga para Desenvolvedor Flutter.Jr. o aplicativo consiste em consumir a API externa de pokemons (https://pokeapi.co/api/v2/pokemon) e fazer uma listagem dos pokemons mostrando seu nome e sua imagem em uma HomeScreen e também ter a opção de clicar em cada pokemon desejável e apresentar uma tela de detalhes com id, nome, foto, habilidades, tipos, peso e altura.
+
+## Descrição dos requisitos
+    Tela Inicial: 
+    - Exiba uma lista de pokémon, mostrando o nome e a imagem de cada um.
+    - Ao tocar em um pokemon da lista, o aplicativo deve navegar para a tela de detalhes do pokemon.
+
+    Tela de detalhes do pokemon:
+    - Exiba informações detalhadas sobre o pokemon selecionando, como nome, número, altura, peso, tipos, habilidades, etc.
+    - Inclua também a imagem do pokemon em tamanho maior.
+    - forneça um botão ou ícone para voltar à tela inicial.
