@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:clean_arch_project/features/list_cats/presentation/screens/cat_details_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:clean_arch_project/features/list_cats/domain/entities/cat_entity.dart';
@@ -20,7 +21,7 @@ class CatListView extends StatelessWidget {
           final catCard = catEntity[index];
           return CatListItem(
             onTap: () {
-              Modular.to.pushNamed('cat-details');
+              Modular.to.pushNamed('cat-details', arguments: CatDetailsArgs(catEntity: catCard));
             },
             catEntity: catCard,
           );

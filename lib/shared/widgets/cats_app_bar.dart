@@ -1,25 +1,25 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class CatsAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CatsAppBar({Key? key, required this.title}) : super(key: key);
-
   final String title;
+  final Widget? leading;
+
+  const CatsAppBar({
+    Key? key,
+    required this.title,
+    this.leading,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        title: Text(title),
-        backgroundColor: Colors.purple,
-        elevation: 5,
-        centerTitle: true,
-        leading: Builder(builder: (BuildContext context) {
-          return IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-          );
-        }));
+      title: Text(title),
+      backgroundColor: Colors.purple,
+      elevation: 5,
+      centerTitle: true,
+      leading: leading,
+    );
   }
 
   @override

@@ -55,7 +55,7 @@ class MainModule extends Module {
         ),
         ChildRoute(
           '/cat-details',
-          child: (context, args) => const CatDetailsScreen(),
+          child: (context, args) => CatDetailsScreen(args: args.data),
           transition: TransitionType.leftToRight,
         )
       ];
